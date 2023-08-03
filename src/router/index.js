@@ -7,7 +7,11 @@ import Contact from "@/views/Contact.vue";
 import Produk from "@/views/Produk.vue";
 import Detail from "@/views/Detail.vue";
 import Kategori from "@/views/Kategori.vue";
-import DetailKategori from "@/views/DetailKategori.vue"
+import DetailKategori from "@/views/DetailKategori.vue";
+import PageNotFound from "@/views/PageNotFound.vue";
+
+
+import Login from "@/views/Login.vue";
 
 const routes = [
     {
@@ -29,6 +33,15 @@ const routes = [
         path: "/produk",
         name: "Produk",
         component: Produk,
+        beforeEnter: (to, from, next) => {
+            const loggedInUser = true;
+            if (loggedInUser) {
+                next();
+                this.$router.push('/produk')
+            } else {
+                next("/login");
+            }
+        },
     },
     {
         path: "/kategori",
@@ -47,6 +60,13 @@ const routes = [
         component: Detail,
         props: true
     },
+    {
+        path: "/login",
+        name: "Login",
+        component: Login,
+        props: true
+    },
+    { path: '/:pathMatch(.*)*', component: PageNotFound},
 ];
 
 const router = createRouter({

@@ -24,6 +24,11 @@ export const kategori = {
             "id": 5,
             "nama": "Vegetables",
             'img': 'sayuran.png'
+        },
+        {
+            "id": 6,
+            "nama": "Lifestyle",
+            
         }
     ],
 }

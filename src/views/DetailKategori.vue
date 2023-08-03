@@ -1,4 +1,9 @@
 <template>
+    <div v-if="data.length == 0">
+        <h1>Produk Tidak Tersedia</h1>
+    </div>
+    <div v-else>
+        <h1>Daftar Produk {{ categoryName }}</h1>
     <h1>Kategori {{ detail.nama }}</h1>
     <div class="flex-container">
         <div v-for="produk in data" :key="produk.id" class="card">
@@ -7,6 +12,7 @@
                 <h4>{{ produk.nama }}</h4>
             </router-link>
         </div>
+     </div>
     </div>
 </template>
 <script>
@@ -53,7 +59,7 @@ export default {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     margin: 10px;
-    min-width: 200px;
+    min-width: 250px;
     cursor: pointer;
 }
 
@@ -67,5 +73,8 @@ export default {
 
 .img {
     width: 200px;
+}
+h1{
+    text-align: center;
 }
 </style>
