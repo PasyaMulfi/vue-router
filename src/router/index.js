@@ -9,12 +9,14 @@ import Detail from "@/views/Detail.vue";
 import Kategori from "@/views/Kategori.vue";
 import DetailKategori from "@/views/DetailKategori.vue";
 import PageNotFound from "@/views/PageNotFound.vue";
-
+import Todo from "../views/Todo.vue"
 
 import Login from "@/views/Login.vue";
+import Counter from "../components/Counter.vue"
+
 
 const routes = [
-    {
+    {   
         path: "/",
         name: "Home",
         component: Home,
@@ -66,7 +68,18 @@ const routes = [
         component: Login,
         props: true
     },
-    { path: '/:pathMatch(.*)*', component: PageNotFound},
+    {
+        path: "/counter",
+        name: "Counter",
+        component: Counter,
+    },
+    {
+        path: "/todo",
+        name: "Todo",
+        component: Todo,
+    },
+    { path: '/:pathMatch(.*)*', component: PageNotFound },
+   
 ];
 
 const router = createRouter({
